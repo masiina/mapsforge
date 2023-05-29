@@ -126,22 +126,22 @@
     </category>
 
     <category title = "Majoitus">
-        <category title = "Camp sites">
+        <category title = "Camping">
             <mapping tag = "tourism=camp_site"/>
         </category>
-        <category title = "Caravan sites">
+        <category title = "Karavaani paikat">
             <mapping tag = "tourism=caravan_site"/>
         </category>
-        <category title = "Guest houses">
+        <category title = "Guest B&R">
             <mapping tag = "tourism=guest_house"/>
         </category>
         <category title = "Hostels">
             <mapping tag = "tourism=hostel"/>
         </category>
-        <category title = "Hotels">
+        <category title = "Hotellit">
             <mapping tag = "tourism=hotel"/>
         </category>
-        <category title = "Motels">
+        <category title = "Motellit">
             <mapping tag = "tourism=motel"/>
         </category>
     </category>
