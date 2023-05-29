@@ -1,0 +1,22 @@
+POI datan luominen
+- osmosis https://github.com/openstreetmap/osmosis
+- mapsforge POI writer (ota release, älä masteria) https://github.com/mapsforge/mapsforge/tree/master
+- oms.bfs datafile: https://download.geofabrik.de/europe/finland.html
+- openjdk 19
+- VS code
+
+
+mapsforge:
+https://github.com/masiina/mapsforge
+aja gradlew.bat
+poista settings.gradle tiedostosta kaikki *android included (poistettu jo omassa repossa)
+modaa *mapsforge-master\mapsforge-master\mapsforge-poi-writer\src\main\config\poi-mapping sellaiseksi kun haluat (modailtu jo omassa repossa)
+buildaa:  mapsforge-poi-writer: .\gradlew :mapsforge-poi-writer:fatjar
+jarri löytyy: * mapsforge-master\mapsforge-master\mapsforge-poi-writer\build\libs
+
+Osmosis:
+osmosis/bin/plugins hakemistoon mapsforgen luoma jarri
+.\osmosis --rb file=*\finland-latest.osm.pbf --poi-writer file=*\{minne haluat tiedoston}.poi
+
+
+

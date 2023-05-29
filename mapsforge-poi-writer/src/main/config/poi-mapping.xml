@@ -112,9 +112,6 @@
         <category title = "Vesi puisto">
             <mapping tag = "leisure=water_park"/>
         </category>
-        <category title = "Attractions">
-            <mapping tag = "tourism=attraction"/>
-        </category>
     </category>
 
     
