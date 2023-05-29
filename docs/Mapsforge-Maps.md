@@ -6,6 +6,6 @@
 - [Kurviger](https://download.kurviger.de/)
 - [Mapsforge](https://download.mapsforge.org/) | [Mirror (fast)](http://ftp-stud.hs-esslingen.de/pub/Mirrors/download.mapsforge.org/)
 - [OpenAndroMaps](https://www.openandromaps.org/en/)
-- [OpenHiking](https://www.openhiking.eu/en/)
+- [OpenMaps](https://openmaps.eu/)
 - [paws.cz](https://osm.paws.cz/)
 - [vector.city](https://vector.city/)

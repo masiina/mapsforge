@@ -17,8 +17,13 @@
 package org.mapsforge.poi.android.storage;
 
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import org.mapsforge.poi.storage.*;
+
+import org.mapsforge.poi.storage.AbstractPoiCategoryManager;
+import org.mapsforge.poi.storage.DoubleLinkedPoiCategory;
+import org.mapsforge.poi.storage.PoiCategory;
+import org.mapsforge.poi.storage.PoiCategoryManager;
+import org.mapsforge.poi.storage.UnknownPoiCategoryException;
+import org.sqlite.database.sqlite.SQLiteDatabase;
 
 import java.util.HashMap;
 import java.util.Map;

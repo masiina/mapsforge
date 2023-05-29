@@ -6,7 +6,7 @@ This article describes how to use the POI API in mapsforge POI library (from `pr
 
 _Points of Interest_ (POIs) are points with a given position, category and data. A POI database is used to store a set of POIs and to search for POIs within a given area.
 
-The mapsforge POI library uses SQLite for storing POIs.
+The mapsforge POI library uses SQLite for storing POIs. For efficiency reasons Android's SQLite implementation is not used. Instead [SQLite Android Bindings](https://sqlite.org/android/) is used to provide an SQLite implementation with [R-tree](https://sqlite.org/rtree.html) functionality.
 
 All reading and writing operations are done via classes implementing the `PoiPersistenceManager` interface. POI categories can be defined on creation time only. Categories are implemented as trees and can be accessed via classes implementing the `PoiCategoryManager` interface.
 
@@ -47,7 +47,7 @@ The `--poi-writer`, or short `--pw` task indicates that the POI writer plugin sh
 |----------|---------------|----------------|-----------------|
 |`tag-conf-file`|Path to an XML configuration file that contains mappings from OSM tags to category names and a hierarchy of those categories.|path to an XML file|(blank) internal default poi mapping is used|
 |`names`|Add only named entities.|true/false|false|
-|`ways`|Also parse ways.|true/false|false|
+|`ways`|Also parse ways.|true/false|true|
 |`normalize`|Add normalized_name (for accent insensitive search). *Works if all-tags is true.*|true/false|true|
 |`geo-tags`|Add geo tags.|true/false|false|
 |`filter-categories`|Drop empty categories.|true/false|true|
@@ -95,8 +95,7 @@ The DB schema consists of:
 
 ## Version history
 
-| **Version** | **Date**   | **Changes**                                     |
-|-------------|------------|-------------------------------------------------|
-| 1           | 2016-06-11 | Initial release of the specification            |
-| 2           | 2017-12-03 | <ul><li>POI multiple categories</li></ul>       |
-| 3           | 2023-01-12 | <ul><li>Android without external libs</li></ul> |
+|**Version**|**Date**|**Changes**|
+|-----------|--------|-----------|
+|1|2016-06-11|Initial release of the specification|
+|2|2017-12-03|<ul><li>POI multiple categories</li></ul>|

@@ -37,23 +37,28 @@ public final class PoiCategoryRangeQueryGenerator {
      * @param filter  The filter object for determining all wanted categories.
      * @param count   Count of patterns to search in points of interest names (may be 0).
      * @param orderBy {@link LatLong} location of the sort.
+     * @param version POI specification version.
      * @return The SQL query.
      */
-    public static String getSQLSelectString(PoiCategoryFilter filter, int count, LatLong orderBy) {
+    public static String getSQLSelectString(PoiCategoryFilter filter, int count, LatLong orderBy, int version) {
         StringBuilder sb = new StringBuilder();
         sb.append(DbConstants.FIND_IN_BOX_CLAUSE_SELECT);
-        sb.append(DbConstants.JOIN_CATEGORY_CLAUSE);
-        if (count > 0) {
+        if (version < 2) {
             sb.append(DbConstants.JOIN_DATA_CLAUSE);
+        } else {
+            sb.append(DbConstants.JOIN_CATEGORY_CLAUSE);
+            if (count > 0) {
+                sb.append(DbConstants.JOIN_DATA_CLAUSE);
+            }
         }
         sb.append(DbConstants.FIND_IN_BOX_CLAUSE_WHERE);
-        sb.append(getSQLWhereClauseString(filter));
+        sb.append(getSQLWhereClauseString(filter, version));
         for (int i = 0; i < count; i++) {
             sb.append(DbConstants.FIND_BY_DATA_CLAUSE);
         }
         if (orderBy != null) {
-            sb.append(" ORDER BY ((").append(orderBy.latitude).append(" - poi_index.lat) * (").append(orderBy.latitude).append(" - poi_index.lat))")
-                    .append(" + ((").append(orderBy.longitude).append(" - poi_index.lon) * (").append(orderBy.longitude).append(" - poi_index.lon)) ASC");
+            sb.append(" ORDER BY ((").append(orderBy.latitude).append(" - poi_index.minLat) * (").append(orderBy.latitude).append(" - poi_index.minLat))")
+                    .append(" + ((").append(orderBy.longitude).append(" - poi_index.minLon) * (").append(orderBy.longitude).append(" - poi_index.minLon)) ASC");
         }
         return (sb.append(" LIMIT ?;").toString());
     }
@@ -61,10 +66,11 @@ public final class PoiCategoryRangeQueryGenerator {
     /**
      * Gets the WHERE clause for the SQL query that looks up POI entries.
      *
-     * @param filter The filter object for determining all wanted categories.
+     * @param filter  The filter object for determining all wanted categories.
+     * @param version POI specification version.
      * @return The WHERE clause.
      */
-    private static String getSQLWhereClauseString(PoiCategoryFilter filter) {
+    private static String getSQLWhereClauseString(PoiCategoryFilter filter, int version) {
         Collection<PoiCategory> superCategories = filter.getAcceptedSuperCategories();
 
         if (superCategories.isEmpty()) {
@@ -82,7 +88,11 @@ public final class PoiCategoryRangeQueryGenerator {
             // Don't forget the super category itself in the search!
             categories.add(superCat);
 
-            sb.append(DbConstants.FIND_IN_BOX_CLAUSE_WHERE_CATEGORY_IN);
+            if (version < 2) {
+                sb.append(DbConstants.FIND_IN_BOX_CLAUSE_WHERE_CATEGORY_IN_V1);
+            } else {
+                sb.append(DbConstants.FIND_IN_BOX_CLAUSE_WHERE_CATEGORY_IN);
+            }
             // for each category
             for (Iterator<PoiCategory> catIter = categories.iterator(); catIter.hasNext(); ) {
                 PoiCategory cat = catIter.next();
