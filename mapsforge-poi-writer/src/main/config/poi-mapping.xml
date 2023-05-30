@@ -17,9 +17,6 @@
             <mapping tag = "amenity=ice_cream"/>
             <mapping tag = "shop=ice_cream"/>
         </category>
-        <category title = "Picnic paikat">
-            <mapping tag = "tourism=picnic_site"/>
-        </category>
     </category>
 
     <category title = "Terveys">
@@ -41,85 +38,51 @@
         </category>
         <category title = "Näköalatornit">
             <mapping tag = "tower=observation"/>
-        </category>
-        <category title = "Viewpoints">
+            <mapping tag = "leisure=bird_hide"/>
             <mapping tag = "tourism=viewpoint"/>
         </category>
-    </category>
-
-    <category title = "Historic">
-        <category title = "Archaeological sites">
-            <mapping tag = "historic=archaeological"/>
+        <category title = "Picnic paikat">
+            <mapping tag = "tourism=picnic_site"/>
+            <mapping tag = "leisure=picnic_table"/>
         </category>
-        <category title = "Battlefields">
-            <mapping tag = "historic=battlefield"/>
+        <category title = "tulisijat">
+            <mapping tag = "leisure=firepit"/>
         </category>
-        <category title = "Boundary stones">
-            <mapping tag = "historic=Boundary stone"/>
-        </category>
-        <category title = "Castles">
-            <mapping tag = "historic=castle"/>
-        </category>
-        <category title = "City gates">
-            <mapping tag = "historic=city gate"/>
-        </category>
-        <category title = "Forts">
-            <mapping tag = "historic=fort"/>
-        </category>
-        <category title = "Memorials">
-            <mapping tag = "historic=memorial"/>
-        </category>
-        <category title = "Monuments">
-            <mapping tag = "historic=monument"/>
-        </category>
-        <category title = "Ruins">
-            <mapping tag = "historic=ruins"/>
-        </category>
-        <category title = "Rune stones">
-            <mapping tag = "historic=runes_stone"/>
-        </category>
-        <category title = "Wayside crosses">
-            <mapping tag = "historic=wayside_cross"/>
-        </category>
-        <category title = "Wayside shrines">
-            <mapping tag = "historic=wayside_shrine"/>
-        </category>
-        <category title = "Wrecks">
-            <mapping tag = "historic=wreck"/>
-        </category>
-    </category>
-
-    <category title = "Viihde">
-        <category title = "puutarha">
-            <mapping tag = "leisure=garden"/>
-        </category>
-        <category title = "Golf">
-            <mapping tag = "leisure=golf_course"/>
-        </category>
-        <category title = "minigolf">
-            <mapping tag = "leisure=miniature_golf"/>
-        </category>
-        <category title = "Puisto">
+        <category title = "puistot">
             <mapping tag = "leisure=park"/>
-        </category>
-        <category title = "Urheilu keskus">
-            <mapping tag = "leisure=sports_centre"/>
         </category>
         <category title = "rannat ja altaat">
             <mapping tag = "leisure=swimming_pool"/>
             <mapping tag = "natural=beach"/>
-        </category>
-        <category title = "Vesi puisto">
-            <mapping tag = "leisure=water_park"/>
+            <mapping tag = "sport=swimming"/>
         </category>
     </category>
-
-    
 
     <category title = "Kaupat">
         <category title = "Supermarkets">
             <mapping tag = "shop=supermarket"/>
         </category>
+        <category title = "pikkumarketti">
+            <mapping tag = "shop=convenience"/>
+        </category>
+        <category title = "huoltsikat">
+            <mapping tag = "amenity=fuel"/>
+        </category>           
+    </category>
+
+    <category title = "Keskukset ja huvittelu puistot">
+        <category title = "Urheilukeskukset">
+            <mapping tag = "leisure=sports_centre"/>
+        </category>
+        <category title = "Golf">
+            <mapping tag = "leisure=golf_course"/>
+        </category>
+        <category title = "Minigolf">
+            <mapping tag = "leisure=miniature_golf"/>
+        </category>
+        <category title = "Huvipuisto">
+            <mapping tag = "tourism=theme_park"/>
+        </category>    
     </category>
 
     <category title = "Majoitus">
